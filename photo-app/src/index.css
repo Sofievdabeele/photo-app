@@ -1,0 +1,27 @@
+:root {
+  --primary: rgb(247, 134, 134);
+  --secondary: rgb(94, 97, 91);
+  --error: orange;
+}
+
+body {
+  background-color: rgb(249, 253, 242);
+  /* font-family: blabla; */
+  color: var(--secondary);
+}
+.App{
+  max-width: 960px;
+  margin: 0 auto;
+}
+.title h1{
+
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  font-size: normal;
+}
+.title h2{
+  color: var(--primary);
+}
+.title h2, .title p {
+  text-align: center;
+}
