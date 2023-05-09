@@ -39,7 +39,7 @@ const UploadForm = () => {
                 { file && <div>{ file.name }</div> }
                 {/* pass file(prop): we want to use useStorage hook to pass the file into that */}
                 {/* pass setFile function: when progress is complete: set file back to null & progressbar doesn't show again  */}
-                { file && <ProgressBar file={file} seFile={setFile} /> }
+                { file && <ProgressBar file={file} setFile={setFile} /> }
             </div>
         </form>
     )

@@ -6,6 +6,7 @@ import { getFirestore  } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 
+
 import 'firebase/auth';
 // import useStorage from "../hooks/useStorage";
 
@@ -25,9 +26,10 @@ const app = initializeApp(firebaseConfig);
 
 //initializing 2 different storages
 const storage = getStorage(app);
+const db = getFirestore(app);
 
-const projectFirestore = getFirestore(app);
+// special type of data that firestorm uses to give timestamp
 
 
 
-export {storage, projectFirestore};
+export {storage, db};

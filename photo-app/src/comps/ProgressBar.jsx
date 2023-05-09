@@ -10,11 +10,11 @@ const ProgressBar = ({ file, setFile }) => {     // pass props that we set to th
     // set file back to null when we have a url(file is fully uploaded)
     // useEffect: fire function when the value of url changes
 
-    // useEffect(() => {
-    //     if (url) {
-    //       setFile(null);
-    //     }
-    //   }, [url, setFile]);
+    useEffect(() => {
+        if (url) {
+          setFile(null);
+        }
+      }, [url, setFile]);
 
     return (
         <div className="progress-bar" style={{ width: progress + '%' }}></div>

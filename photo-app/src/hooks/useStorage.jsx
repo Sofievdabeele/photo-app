@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { storage, projectFirestore } from "../firebase/config";
+import { storage, db } from "../firebase/config";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-
+import { collection, doc, setDoc } from "firebase/firestore"; 
 
 // function responsible for fileuploads (progress/errors/url)
 const useStorage = (file) => {   //file comes from uploadForm: file thats user selects
@@ -13,25 +13,28 @@ const useStorage = (file) => {   //file comes from uploadForm: file thats user s
         const storageRef = ref(storage,`/${file.name}`);
         const uploadTask = uploadBytesResumable(storageRef, file);
 
-        // const collectionRef = projectFirestore.collection('images'); //firebase is going to create for us
+        const collectionRef = doc(collection(db, "images"));  //firebase is going to create for us
+        
         uploadTask.on( "state_changed", (snapshot) => {
             let percentage = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
             setProgress(percentage);
         }, (err) => {
             setError(err);
         }, async () => {
-            const url = await getDownloadURL(storageRef).then( url => console.log(url));
+            const url = await getDownloadURL(storageRef);
+            
+            const data = {
+                url: url,
+                createdAt: new Date()
+              };
+            const randomId = await setDoc(collectionRef, data);
             setUrl(url);
         })
-    }, [file]);               // dependency inside the array => function is happening everytime file changes 
+    }, [file]);              
 
     return  { progress, url, error }
-    
     // set progress to percentage
     // set url after image has been uploaded
     // set error if there is one
-
 }
-
-
 export default useStorage;
