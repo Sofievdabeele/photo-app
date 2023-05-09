@@ -25,3 +25,10 @@ body {
 .title h2, .title p {
   text-align: center;
 }
+
+
+.progress-bar{
+  height: 5px;
+  background-color: var(--primary);
+  margin-top: 20px;
+}
