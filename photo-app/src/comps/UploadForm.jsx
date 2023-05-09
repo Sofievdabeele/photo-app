@@ -5,13 +5,13 @@ const UploadForm = () => {
 
     const [file, setFile] = useState(null);
     const [error, setError] = useState(null);
-
+    
     //make an array of allowed types of images
-    const types = ['image/png', 'image/jpeg', 'image/jpg'];
+    const types = ['image/png', 'image/jpeg', 'image/jpg', "/image/*"];
 
     const changeHandler = (e) => {
         // const form = e.target.parentElement.parentElement
-        // form.preventDefault();
+        // e.preventDefault();
         let selected = e.target.files[0];
         
         
