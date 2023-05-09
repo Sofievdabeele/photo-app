@@ -1,11 +1,11 @@
 :root {
-  --primary: rgb(247, 134, 134);
-  --secondary: rgb(94, 97, 91);
-  --error: orange;
+  --primary: rgb(143, 193, 165);
+  --secondary: rgb(216, 216, 216);
+  --error: rgb(173, 118, 118);
 }
 
 body {
-  background-color: rgb(249, 253, 242);
+  background-color: rgb(39, 39, 39);
   /* font-family: blabla; */
   color: var(--secondary);
 }
@@ -14,13 +14,14 @@ body {
   margin: 0 auto;
 }
 .title h1{
-
+  color: var(--primary);
   font-size: 1.2rem;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   font-size: normal;
 }
 .title h2{
-  color: var(--primary);
+  font-size: 1.6rem;
+  letter-spacing: 2px;
 }
 .title h2, .title p {
   text-align: center;
@@ -50,7 +51,7 @@ label{
 }
 label:hover{
   background: var(--primary);
-  color: white;
+  color: var(--secondary);
 }
 .output{
   height: 60px;
@@ -58,6 +59,7 @@ label:hover{
 }
 .error{
   color: var(--error);
+  letter-spacing: 1.5px;
 }
 
 
@@ -65,4 +67,6 @@ label:hover{
   height: 5px;
   background-color: var(--primary);
   margin-top: 20px;
+  
+
 }

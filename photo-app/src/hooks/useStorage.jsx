@@ -27,7 +27,7 @@ const useStorage = (file) => {   //file comes from uploadForm: file thats user s
                 url: url,
                 createdAt: new Date()
               };
-            const randomId = await setDoc(collectionRef, data);
+            await setDoc(collectionRef, data);
             setUrl(url);
         })
     }, [file]);              
