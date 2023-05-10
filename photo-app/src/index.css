@@ -67,6 +67,27 @@ label:hover{
   height: 5px;
   background-color: var(--primary);
   margin-top: 20px;
-  
+}
 
+.img-grid{
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 40px;
+}
+.image-wrap{
+  overflow: hidden;
+  height: 0;
+  /* padding => will always be perfectly square regardless of width */
+  padding: 50% 0;
+  position: relative;
+  opacity: 0.8;
+}
+.image-wrap img{
+  min-width: 100%;
+  min-height: 100%;
+  max-width: 150%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }

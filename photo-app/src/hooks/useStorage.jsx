@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { storage, db } from "../firebase/config";
-import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { collection, doc, setDoc } from "firebase/firestore"; 
 
 // function responsible for fileuploads (progress/errors/url)
@@ -11,7 +11,7 @@ const useStorage = (file) => {   //file comes from uploadForm: file thats user s
         
     useEffect(() => {       
         const storageRef = ref(storage,`/${file.name}`);
-        const uploadTask = uploadBytesResumable(storageRef, file);
+        const uploadTask = uploadBytes(storageRef, file);
 
         const collectionRef = doc(collection(db, "images"));  //firebase is going to create for us
         

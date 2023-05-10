@@ -10,9 +10,9 @@ const useFirestore = (collectionName) => {
     
     useEffect(() => {
         const q = query(collection(db, collectionName), orderBy('createdAt', 'desc'));
-    const unsubscribe = onSnapshot(q, (snapshot) => {
-      const updatedDocuments = snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }));
-      setDocs(updatedDocuments);
+        const unsubscribe = onSnapshot(q, (snapshot) => {
+        const updatedDocuments = snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }));
+        setDocs(updatedDocuments);
     });
        
         // unsubscribe from the collection when we no longer need it    
