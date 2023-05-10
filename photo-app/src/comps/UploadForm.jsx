@@ -34,7 +34,7 @@ const UploadForm = () => {
             </label>
             {/* output file if we have a valid file or output error */}
             <div className="output">
-                {/* && = if left side is true then outût the right side */}
+                {/* && = if left side is true then output the right side */}
                 { error && <div className="error">{ error }</div> }
                 { file && <div>{ file.name }</div> }
                 {/* pass file(prop): we want to use useStorage hook to pass the file into that */}
