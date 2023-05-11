@@ -4,12 +4,8 @@ import 'firebase/storage';   //to store images
 import 'firebase/firestore';  //database
 import { getFirestore  } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
-
-
-
 import 'firebase/auth';
 // import useStorage from "../hooks/useStorage";
-
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -27,9 +23,5 @@ const app = initializeApp(firebaseConfig);
 //initializing 2 different storages
 const storage = getStorage(app);
 const db = getFirestore(app);
-
-// special type of data that firestorm uses to give timestamp
-
-
 
 export {storage, db};

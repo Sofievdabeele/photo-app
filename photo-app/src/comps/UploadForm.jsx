@@ -10,21 +10,16 @@ const UploadForm = () => {
     const types = ['image/png', 'image/jpeg', 'image/jpg', "/image/*"];
 
     const changeHandler = (e) => {
-        // const form = e.target.parentElement.parentElement
-        // e.preventDefault();
         let selected = e.target.files[0];
-        
-        
-        //if we have a file & type is correct:update state of file and pass in the selected file
-        if (selected && types.includes(selected.type)) {           
-            setFile(selected);
-            setError('');
+      
+        if (selected && types.includes(selected.type)) {
+          setFile(selected);
+          setError('');
         } else {
-            //reset the value because something invalled was oploaded or not selected 
-            setFile(null);
-            setError('Please select an image (png, jpeg or jpg)');
+          setFile(null);
+          setError('Please select an image (png, jpeg or jpg)');
         }
-    }
+      };
 
     return (
         <form>
