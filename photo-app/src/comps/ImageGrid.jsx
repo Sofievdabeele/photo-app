@@ -4,7 +4,7 @@ import { storage } from "../firebase/config";
 import { ref, getDownloadURL, listAll } from "firebase/storage";
 import { motion } from "framer-motion"
 
-const ImageGrid = ({ setSelectedImage, url }) => {
+const ImageGrid = ({ setSelectedImage, url }, file) => {
  
   const [urls, setUrls] = useState([]);
   const listRef = ref(storage, "images/");
@@ -27,13 +27,13 @@ const ImageGrid = ({ setSelectedImage, url }) => {
       .catch((error) => {
         console.log("Error listing images from Firebase Storage:", error);
       });
-  }, [url]);
+  }, []);
 
   return (
     <div className="img-grid">
       {urls &&
-        urls.map((url) => (
-          <motion.div className="image-wrap" key={url} 
+        urls.map((url, id) => (
+          <motion.div className="image-wrap" key={id} 
           layout
           whileHover={{ opacity: 1}}
           onClick={() => setSelectedImage(url)}>
