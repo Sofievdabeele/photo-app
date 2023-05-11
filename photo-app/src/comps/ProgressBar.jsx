@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import useStorage from '../hooks/useStorage';
-// import { motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 
 const ProgressBar = ({ file, setFile }) => {     // pass props that we set to the progressbar in the uploadForm and destructure
@@ -17,7 +17,10 @@ const ProgressBar = ({ file, setFile }) => {     // pass props that we set to th
       }, [url, setFile]);
 
     return (
-        <div className="progress-bar" style={{ width: progress + '%' }}></div>
+        <motion.div className="progress-bar"
+        initial={{ width: 0 }}
+        animate={{ width: progress + '%' }}
+        ></motion.div>
     )
 }
 export default ProgressBar;
