@@ -8,20 +8,27 @@ const ImageGrid = ({ setSelectedImage, file }) => {
   const [urls, setUrls] = useState([]);
   const listRef = ref(storage, "images/");
   
-
+  
   useEffect(() => {
-
     listAll(listRef)
       .then((response) => {
-        response.items.forEach((item) => {
-          getDownloadURL(item).then((url) => {
-            setUrls((prev) => [...prev, url]);
-          });
-
-        });
+        const promises = response.items.map((item) =>
+          getDownloadURL(item).then((url) => url)
+        );
+        return Promise.all(promises);
+      })
+      .then((downloadUrls) => {
+        // Filter out duplicate URLs
+        const uniqueUrls = downloadUrls.filter(
+          (url) => !urls.includes(url)
+        );
+  
+        setUrls((prevUrls) => [...prevUrls, ...uniqueUrls]);
+      })
+      .catch((error) => {
+        console.log("Error listing images from Firebase Storage:", error);
       });
-    
-  }, []);
+  }, [file]);
 
   return (
     <div className="img-grid">

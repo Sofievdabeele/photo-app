@@ -13,7 +13,7 @@ const useStorage = (file) => {   //file comes from uploadForm: file thats user s
     
     const storageRef = ref(storage,`images/${ file.name }`);
     const uploadTask = uploadBytesResumable(storageRef, file);
-    const listRef = ref(storage, "images/");
+    
     
     useEffect(() => {       
         if (!file) return;

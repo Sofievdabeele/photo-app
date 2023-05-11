@@ -2,7 +2,7 @@ import './App.css'
 import Title from './comps/Title'
 import UploadForm from './comps/UploadForm'
 import ImageGrid from './comps/ImageGrid'
-// import Modal from './comps/Modal'
+import Modal from './comps/Modal'
 import { useState } from 'react'
 
 function App() {
@@ -13,10 +13,8 @@ function App() {
     <div className='App'>
       <Title />
       <UploadForm setFile={setFile} />
-      <ImageGrid />
-      {/* 
-      {file && <ImageGrid setSelectedImage={setSelectedImage} file={file} />} */}
-      {/* {selectedImage && <Modal selectedImage={selectedImage} />} */}
+      <ImageGrid setSelectedImage={setSelectedImage} file={file} />
+      { selectedImage && <Modal selectedImage={selectedImage} setSelectedImage={setSelectedImage} /> }
     </div>
   );
 }
