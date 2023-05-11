@@ -19,15 +19,21 @@ const ImageGrid = ({ setSelectedImage, url }, file) => {
       })
       .then((downloadUrls) => {
         // Filter out duplicate URLs
+        // const sortedUrls = downloadUrls.sort((a, b) => b.createdAt - a.createdAt);
+        // setUrls(sortedUrls);
+
         const uniqueUrls = downloadUrls.filter(
           (url) => !urls.includes(url)
-        );
-        setUrls((prevUrls) => [...prevUrls, ...uniqueUrls]);
+          );
+          const sortedUrls = downloadUrls.sort(
+            (a, b) => b.createdAt - a.createdAt);
+        setUrls(uniqueUrls, sortedUrls)
       })
+    
       .catch((error) => {
         console.log("Error listing images from Firebase Storage:", error);
       });
-  }, []);
+  }, [url]);
 
   return (
     <div className="img-grid">
