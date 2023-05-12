@@ -1,14 +1,16 @@
 import './App.css'
+import Navigation from './comps/navbar/navigation'
+import Signup from './comps/signupPage/Signup'
+import Login from './comps/loginPage/Login'
+import Home from './Home'
 import Title from './comps/photoPage/Title'
 import UploadForm from './comps/photoPage/UploadForm'
 import ImageGrid from './comps/photoPage/ImageGrid'
 import Modal from './comps/photoPage/Modal'
-import Navigation from './comps/navbar/navigation'
 import { useState } from 'react'
 
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Login from './comps/loginPage/Login'
 
 
 
@@ -20,15 +22,19 @@ function App() {
   return (
     <div className='App'>
     <Navigation />
-    
+
     <BrowserRouter>
+    <section>
+
       <Routes>
         
-          <Route path="loginPage" element={<Login />} />
-          <Route path="loginPage" element={<Login />} />
+          {/* <Route path="/" element={<Home />} /> */}
+          <Route path="/signupPage" element={<Signup/>}/>
+          <Route path="/loginPage" element={<Login />} />
           <Route path="photoPage" element={<Title />} />
      
       </Routes>
+    </section>
     </BrowserRouter>
 
     {/* <Title />
