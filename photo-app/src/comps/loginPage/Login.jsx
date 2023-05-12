@@ -15,7 +15,7 @@ const Login = () => {
         .then((userCredential) => {
             // Signed in
             const user = userCredential.user;
-            navigate("../photoPage/Title")
+            navigate("../photoPage")
             console.log(user);
         })
         .catch((error) => {
@@ -65,14 +65,14 @@ const Login = () => {
                     <button className="submit-button" onClick={onLogin}>Login</button>
                     <br />
                     <label>
-                       <input className="login-input" type="checkbox"/>Remember me
+                       <input className="checkbox" type="checkbox"/>Remember me
                     </label>
                     <div className="cancel-forgot">
                         <button className="cancel-button" type="button">Cancel</button>
-                        <span className="psw">Forgot <a className="forgot-link" href="#">password?</a></span>
+                        <span className="psw">Forgot <a className="form-link" href="#">password?</a></span>
                     </div>
-                    <p className="text-sm text-white text-center">No account yet? {' '}
-                        <NavLink to="../signupPage">Sign up</NavLink>
+                    <p className="login-text">No account yet? {' '}
+                        <NavLink to="../signupPage" className="form-link">Sign up</NavLink>
                     </p>
                 </div>
 

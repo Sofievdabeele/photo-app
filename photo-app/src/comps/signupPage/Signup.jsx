@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase/config';
+import '../../Login.css';
 
 const Signup = () => {
     const navigate = useNavigate();
@@ -35,14 +36,17 @@ const Signup = () => {
         <div className="login">
             <div className="title">   
                     <h2> Signup Form </h2> 
-            </div>                                                                           
+            </div>  
+
             <form className="login-form" action="">                                                                                     
                 <div className="image-container">
                     <img src="./src/assets/user.png" alt="Avatar" className="avatar"/>
                 </div>
+
                 <div className="form-container">
-                    <label htmlFor="email-address">Email address<br/></label>
+                    <label className="login-label" htmlFor="email-address">Email address<br/></label>
                     <input
+                        className="login-input"
                         type="email"
                         label="Email address"
                         value={email}
@@ -51,8 +55,9 @@ const Signup = () => {
                         placeholder="Email address"                                
                     />
                     <br />
-                    <label htmlFor="password">Password<br/></label>
+                    <label className="login-label" htmlFor="password">Password<br/></label>
                     <input
+                        className="login-input"
                         type="password"
                         label="Create password"
                         value={password}
@@ -67,8 +72,8 @@ const Signup = () => {
                         onClick={onSubmit}                        
                         >Sign up  
                     </button>
-                    <p>Already have an account?{' '}
-                        <NavLink to="../loginPage">Sign in</NavLink>
+                    <p className="login-text">Already have an account?{' '}
+                        <NavLink to="../loginPage"className="form-link">Sign in</NavLink>
                     </p>            
                 </div>                                                        
             </form>

@@ -33,8 +33,15 @@ label.login-label{
     border-radius: 10px;
 }
 input.login-input{
-    background-color: var(--secondary);
-    color: var(--primary)
+    color: var(--primary);
+    width: 97%;
+    border-radius: 10px;
+    height: 30px;
+    
+}
+input.checkbox{
+  background-color: var(--secondary);
+  color: var(--primary);
 }
 .submit-button {
     background-color: var(--primary);
@@ -66,7 +73,7 @@ button:hover {
     float: right;
     padding-top: 16px;
   }
-  a.forgot-link{
+  a.form-link{
     color: var(--error);
   }
   @media screen and (max-width: 300px) {

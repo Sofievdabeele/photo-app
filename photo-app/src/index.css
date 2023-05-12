@@ -9,6 +9,9 @@ body {
   /* font-family: blabla; */
   color: var(--secondary);
 }
+section{
+  padding-top: 2%;
+}
 .App{
   min-width: 200px;
   max-width: 960px;
