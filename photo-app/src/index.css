@@ -14,6 +14,7 @@ body {
   max-width: 960px;
   margin: auto;
 }
+
 .title h1{
   text-align: end;
   color: var(--primary);
@@ -31,90 +32,4 @@ body {
   margin-left: 5px;
   margin-right: 5px;
   text-align: center;
-}
-
-/* upload form styles */
-form{
-  margin: 30px auto 10px;
-  text-align: center;
-}
-label input{
-  height: 0;
-  width: 0;
-  opacity: 0;
-}
-label{
-  display: block;
-  width: 30px;
-  height: 30px;
-  border: 1px solid var(--primary);
-  border-radius: 50%;
-  margin: 10px auto;
-  line-height: 30px;
-  color: var(--primary);
-  font-weight: bold;
-  font-size: 24px;
-}
-label:hover{
-  background: var(--primary);
-  color: rgb(39, 39, 39);
-  transform: scale(1.2);
-  transition: 1s;
-}
-.output{
-  height: 60px;
-  font-size: 0.8rem;
-}
-.error{
-  color: var(--error);
-  letter-spacing: 1.5px;
-}
-
-.progress-bar{
-  height: 5px;
-  background-color: var(--primary);
-  margin-top: 20px;
-}
-
-.img-grid{
-  margin: 20px auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 40px;
-}
-.image-wrap{
-  overflow: hidden;
-  height: 0;
-  /* padding => will always be perfectly square regardless of width */
-  padding: 50% 0;
-  position: relative;
-  opacity: 0.8;
-}
-.image-wrap img{
-  min-width: 100%;
-  min-height: 100%;
-  max-width: 150%;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-/* modal styles */
-.backdrop{
-  display: flex;
-  position: fixed;
-  justify-content: center;
-  align-items: center;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.628);
-}
-.backdrop img{
-  display: block;
-  position: relative;
-  max-width: 60%;
-  max-height: 80%;
-  box-shadow: 3px 5px 7px rgba(0,0,0,0.5);
-  border: 10px solid rgb(216, 216, 216);
 }

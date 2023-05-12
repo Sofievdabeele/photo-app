@@ -1,5 +1,16 @@
+import '../../Photo.css';
+import ProgressBar from "./ProgressBar";
+import ImageGrid from "./ImageGrid";
+import UploadForm from "./UploadForm";
+import { useState } from 'react'
+
+
 const Title = () => {
+    const [selectedImage, setSelectedImage] = useState(null);
+    const [file, setFile] = useState(null);
     return(
+
+        <>
         <div className="title">
             <h1>WanderShots</h1>
             <h2>"Capture life's moments, 
@@ -10,6 +21,10 @@ const Title = () => {
                 With powerful tools at your fingertips, bring your photos to life and tell your story like never before. 
                 Start your journey today and let your pictures speak a thousand words!"</p>
         </div>
+        <UploadForm setFile={setFile} />
+      <ImageGrid setSelectedImage={setSelectedImage} file={file} />
+      { selectedImage && <Modal selectedImage={selectedImage} setSelectedImage={setSelectedImage} /> }
+        </>
     )
 }
 export default Title;

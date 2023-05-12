@@ -1,9 +1,17 @@
 import './App.css'
-import Title from './comps/Title'
-import UploadForm from './comps/UploadForm'
-import ImageGrid from './comps/ImageGrid'
-import Modal from './comps/Modal'
+import Title from './comps/photoPage/Title'
+import UploadForm from './comps/photoPage/UploadForm'
+import ImageGrid from './comps/photoPage/ImageGrid'
+import Modal from './comps/photoPage/Modal'
+import Navigation from './comps/navbar/navigation'
 import { useState } from 'react'
+
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Login from './comps/loginPage/Login'
+
+
+
 
 function App() {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -11,12 +19,42 @@ function App() {
 
   return (
     <div className='App'>
-      <Title />
-      <UploadForm setFile={setFile} />
-      <ImageGrid setSelectedImage={setSelectedImage} file={file} />
-      { selectedImage && <Modal selectedImage={selectedImage} setSelectedImage={setSelectedImage} /> }
+    <Navigation />
+    
+    <BrowserRouter>
+      <Routes>
+        
+          <Route path="loginPage" element={<Login />} />
+          <Route path="loginPage" element={<Login />} />
+          <Route path="photoPage" element={<Title />} />
+     
+      </Routes>
+    </BrowserRouter>
+
+    {/* <Title />
+    <UploadForm setFile={setFile} />
+    <ImageGrid setSelectedImage={setSelectedImage} file={file} />
+    { selectedImage && <Modal selectedImage={selectedImage} setSelectedImage={setSelectedImage} /> } */}
+      
+
+    
+    
     </div>
   );
 }
 
 export default App;
+ {/* <BrowserRouter>
+        <Switch>
+          <Route path="/loginPage">
+            <Login />
+          </Route>
+          <Route path="/photoPage">
+            <Title />
+            <UploadForm setFile={setFile} />
+            <ImageGrid setSelectedImage={setSelectedImage} file={file} />
+            { selectedImage && <Modal selectedImage={selectedImage} setSelectedImage={setSelectedImage} /> }
+            
+          </Route>
+        </Switch>
+      </BrowserRouter> */}

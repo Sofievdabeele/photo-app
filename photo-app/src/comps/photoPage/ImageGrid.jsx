@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from "react";
-import { storage } from "../firebase/config";
+import { storage } from "../../firebase/config";
 import { ref, getDownloadURL, listAll } from "firebase/storage";
 import { motion } from "framer-motion"
 
@@ -56,6 +56,5 @@ const ImageGrid = ({ setSelectedImage, url }, file) => {
 };
 
 export default ImageGrid;
-
 
 

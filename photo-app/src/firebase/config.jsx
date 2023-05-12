@@ -5,6 +5,7 @@ import 'firebase/firestore';  //database
 import { getFirestore  } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 import 'firebase/auth';
+import { getAuth } from "firebase/auth";
 // import useStorage from "../hooks/useStorage";
 
 // Your web app's Firebase configuration
@@ -24,4 +25,6 @@ const app = initializeApp(firebaseConfig);
 const storage = getStorage(app);
 const db = getFirestore(app);
 
-export {storage, db};
+const auth = getAuth(app);
+
+export {storage, db, auth};
