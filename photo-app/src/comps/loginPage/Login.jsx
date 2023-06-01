@@ -16,7 +16,7 @@ const Login = () => {
             // Signed in
             const user = userCredential.user;
             navigate("../photoPage")
-            console.log(user);
+            console.log(user.email);
         })
         .catch((error) => {
             const errorCode = error.code;

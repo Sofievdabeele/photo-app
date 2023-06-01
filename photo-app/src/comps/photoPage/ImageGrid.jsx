@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { storage } from "../../firebase/config";
 import { ref, getDownloadURL, listAll } from "firebase/storage";
@@ -18,10 +17,6 @@ const ImageGrid = ({ setSelectedImage, url }, file) => {
         return Promise.all(promises);
       })
       .then((downloadUrls) => {
-        // Filter out duplicate URLs
-        // const sortedUrls = downloadUrls.sort((a, b) => b.createdAt - a.createdAt);
-        // setUrls(sortedUrls);
-
         const uniqueUrls = downloadUrls.filter(
           (url) => !urls.includes(url)
           );

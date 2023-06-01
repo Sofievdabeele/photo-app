@@ -37,3 +37,17 @@ section{
   margin-right: 5px;
   text-align: center;
 }
+h2.index{
+  margin-top: 10%;
+  text-align: center;
+}
+button.index{
+  background-color: var(--primary);
+  color: rgb(39, 39, 39);
+  border-radius: 10px;
+}
+div.buttons{
+  display: flex;
+  flex-direction: column;
+  
+}

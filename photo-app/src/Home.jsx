@@ -3,6 +3,8 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from './firebase/config';
 import { signOut } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
+import Signup from './comps/signupPage/Signup';
+
 
 const Home = () => {
 
@@ -10,8 +12,8 @@ const Home = () => {
  
     const handleLogout = () => {               
         signOut(auth).then(() => {
-        // Sign-out successful.
             navigate("/");
+            alert("Signed out successfully");
             console.log("Signed out successfully")
         }).catch((error) => {
         // An error happened.
@@ -22,31 +24,43 @@ const Home = () => {
         onAuthStateChanged(auth, (user) => {
             if (user) {
               const uid = user.uid;
-              navigate("/photoPage/Title");
+              navigate("/photoPage");
               console.log("uid", uid)
             } else {
-              // User is signed out
-              // ...
-              console.log("user is logged out")
+                navigate("/");  
+                console.log("user is logged out")
             }
           });
          
     }, [])
+
+    const navigateToLogin = () => {
+        navigate('/loginPage');
+      };
+    
+      const navigateToSignup = () => {
+        // 👇️ navigate to /
+        navigate('/signupPage');
+      };
     return (
-        <section>
+        <>
+            <nav>
+                <h2 className="index">Welcome to WanderShots</h2>
+                <div className="buttons">
+                    <button className="index" onClick={navigateToLogin}>
+                        Login
+                    </button>
+                    <button className="index" onClick={navigateToSignup}>
+                        Signup
+                    </button>
+                    <button className="index" onClick={handleLogout}>
+                        Logout
+                    </button>
+      
+                </div>
 
-        </section>
-        //     <>
-        // <nav>
-        //     <h1>Welcome to WanderShots</h1>
-        //     <div>
-        //         <button onClick={handleLogout}>
-        //             Logout
-        //         </button>
-        //     </div>
-
-        // </nav>
-        // </>
+            </nav>
+        </>
     )
 }
 export default Home;

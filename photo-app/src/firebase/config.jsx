@@ -1,12 +1,11 @@
 import { initializeApp } from "firebase/app";
-// import * as firebase from 'firebase/app';
 import 'firebase/storage';   //to store images
 import 'firebase/firestore';  //database
 import { getFirestore  } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
-// import 'firebase/auth';
+
 import { getAuth } from "firebase/auth";
-// import useStorage from "../hooks/useStorage";
+
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -26,12 +25,6 @@ const storage = getStorage(app);
 const db = getFirestore(app);
 
 const auth = getAuth(app);
-// onAuthStateChanged(auth, user => {
-//   if(user != null) {
-//     console.log(user.uid);
-//   }
-// });
-// const user = await signInAnonymously(auth);
-// signInAnonymously(auth);
+
 
 export {storage, db, auth};
